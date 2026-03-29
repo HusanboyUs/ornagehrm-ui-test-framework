@@ -13,23 +13,23 @@ def browser():
         yield browser
         browser.close()
 
-
-@pytest.fixture(scope="class", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def contextPage(browser):
     page = browser.new_page()
+    page.goto("https://opensource-demo.orangehrmlive.com/")
     yield page
     page.close()
 
 
 # -------------------------------------- PAGES ---------------------------------------------------
-@pytest.fixture(scope="class", autouse=False)
+@pytest.fixture(scope="function", autouse=False)
 def loginPage(contextPage) -> LoginPage:
     return LoginPage(page=contextPage)
+
 
 @pytest.fixture(scope="class", autouse=False)
 def login():
     pass 
-
 
 # not sure about this one!
 @pytest.fixture(scope="class", autouse=False)
