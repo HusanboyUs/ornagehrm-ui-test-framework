@@ -17,7 +17,7 @@ class TestResetPasswordPage:
         password_reset_page = loginPage.click_password_reset_page()
         expect(password_reset_page.password_reset_form).to_be_visible()
 
-    @pytest.mark.password_reset
+    @pytest.mark.password_reset # bug
     def test_send_username_to_password_reset_with_empty_username(self, loginPage):
         password_reset_page = loginPage.click_password_reset_page()
         password_reset_page.enter_username_to_form("")

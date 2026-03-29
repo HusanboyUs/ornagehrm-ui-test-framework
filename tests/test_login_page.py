@@ -31,6 +31,7 @@ class TestLoginPage:
             username="Admin",
             password="admin123"
         )
+        
         # assert
         expect(loginPage.login_error_alert).not_to_be_visible()
         expect(loginPage.username_input).not_to_be_visible()
